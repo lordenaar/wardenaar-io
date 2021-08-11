@@ -104,11 +104,7 @@ const BlogPost = () => {
           position: "absolute",
         }}
       >
-        <Fab
-          color="primary"
-          aria-label="back"
-          onClick={() => history.push("/blog")}
-        >
+        <Fab color="primary" aria-label="back" onClick={() => history.goBack()}>
           <ArrowBack />
         </Fab>
       </div>

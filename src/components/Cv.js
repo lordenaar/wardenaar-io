@@ -14,27 +14,28 @@ const CV = () => {
         overflow: "scroll",
         borderRadius: "8px",
         willChange: "transform",
+        margin: "20px 0 0 0",
       }}
     >
-      {loading && <Spinner />}
       <iframe
         title="cv"
         loading="lazy"
         onLoad={() => setLoading(false)}
         style={{
+          filter: loading ? "blur(10px)" : "blur(0)",
           display: "flex",
           width: "100vw",
-          maxWidth: "21cm",
+          maxWidth: "25cm",
           height: "141vw",
-          maxHeight: "31cm",
+          maxHeight: "36.5cm",
           top: "0",
           left: "0",
           border: "none",
           padding: "0",
-          margin: "20px 0 0 0",
         }}
         src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAEiXMTIQtQ&#x2F;view?embed"
-      ></iframe>
+      />
+      {loading && <Spinner />}
     </div>
   )
 }
