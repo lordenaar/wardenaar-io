@@ -6,7 +6,7 @@ const Spinner = () => {
     <CircularProgress
       size={90}
       thickness={5}
-      style={{ position: "absolute", padding: "100px" }}
+      style={{ position: "absolute", margin: "100px" }}
     />
   )
 }
