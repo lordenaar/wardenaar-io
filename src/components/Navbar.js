@@ -35,7 +35,6 @@ const Navbar = (props) => {
     <HideOnScroll {...props}>
       <Appbar>
         <Toolbar style={{ justifyContent: "end" }}>
-          <Button to="/cv">CV</Button>
           <Button to="/about">About</Button>
           <Button to="/blog">Blog</Button>
           <Button>
