@@ -1,6 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
+import Spinner from "./Spinner"
 
 const CV = () => {
+  const [loading, setLoading] = useState(true)
   return (
     <div
       style={{
@@ -14,9 +16,11 @@ const CV = () => {
         willChange: "transform",
       }}
     >
+      {loading && <Spinner />}
       <iframe
         title="cv"
         loading="lazy"
+        onLoad={() => setLoading(false)}
         style={{
           display: "flex",
           width: "100vw",

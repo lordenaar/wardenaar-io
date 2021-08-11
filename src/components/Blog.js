@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { getPosts } from "./utils"
 import BlogCard from "./BlogCard"
-import { CircularProgress } from "@material-ui/core"
+import Spinner from "./Spinner"
 
 const Blog = () => {
   const [posts, setPosts] = useState([])
@@ -11,16 +11,14 @@ const Blog = () => {
     fetchData()
   }, [])
 
-  return (
+  return posts ? (
     <div>
-      {posts ? (
-        posts.map((post) => {
-          return <BlogCard key={post.id} post={post} />
-        })
-      ) : (
-        <CircularProgress />
-      )}
+      {posts.map((post) => {
+        return <BlogCard key={post.id} post={post} />
+      })}
     </div>
+  ) : (
+    <Spinner />
   )
 }
 

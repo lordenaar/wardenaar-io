@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { useHistory, useParams } from "react-router-dom"
-import { CircularProgress, Fab, Paper } from "@material-ui/core"
+import { Fab, Paper } from "@material-ui/core"
 import { getPost } from "./utils"
 import ArrowBack from "@material-ui/icons/ArrowBack"
 import Markdown from "markdown-to-jsx"
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight"
 import { darcula } from "react-syntax-highlighter/dist/esm/styles/hljs"
+import Spinner from "./Spinner"
 
 const BlogPost = () => {
   const [post, setPost] = useState(null)
@@ -76,7 +77,7 @@ const BlogPost = () => {
     // <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
     <>
       <Paper
-        style={{ width: "88%" }}
+        style={{ width: "88%", margin: "20px 0", padding: "10px" }}
         dangerouslySetInnerHTML={{
           __html: `<div><h1>${post.title?.rendered}</h1><br/>${post.content?.rendered}</div>`,
         }}
@@ -114,7 +115,7 @@ const BlogPost = () => {
     </>
   ) : (
     // </div>
-    <CircularProgress />
+    <Spinner />
   )
 }
 
