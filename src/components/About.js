@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Courier New",
   },
   typedContainer: {
-    padding: "50px",
+    padding: "50px 0px 0px 0px",
     width: "100vw",
     textAlign: "center",
   },
