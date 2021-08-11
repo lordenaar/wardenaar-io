@@ -1,6 +1,5 @@
 import React from "react"
 import Typography from "@material-ui/core/Typography"
-import Avatar from "@material-ui/core/Avatar"
 import Grid from "@material-ui/core/Grid"
 import Box from "@material-ui/core/Box"
 import Typed from "react-typed"
@@ -12,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(35),
     height: theme.spacing(35),
     margin: theme.spacing(1),
+    filter: "drop-shadow(1px 1px 5px #222)",
   },
   title: {
     color: "tomato",
@@ -23,23 +23,19 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Courier New",
   },
   typedContainer: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%,-50%)",
+    padding: "50px",
     width: "100vw",
     textAlign: "center",
-    zIndex: 1,
   },
 }))
 
-const Header = () => {
+const About = () => {
   const classes = useStyles()
 
   return (
     <Box className={classes.typedContainer}>
-      <Grid container justify="center">
-        <Avatar className={classes.avatar} src={avatar} alt="Scott Wardenaar" />
+      <Grid container justifyContent="center">
+        <img src={avatar} className={classes.avatar} alt="Scott Wardenaar" />
       </Grid>
       <Typography className={classes.title} variant="h4">
         <Typed strings={["Scott Wardenaar"]} typeSpeed={90} />
@@ -51,6 +47,7 @@ const Header = () => {
             "Full-Stack Developer",
             "Site Reliability Engineer",
             "DevOps Engineer",
+            "Cloud Administrator",
           ]}
           typeSpeed={40}
           backSpeed={20}
@@ -61,4 +58,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default About
