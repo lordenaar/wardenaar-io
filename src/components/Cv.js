@@ -14,7 +14,7 @@ const CV = () => {
         overflow: "scroll",
         borderRadius: "8px",
         willChange: "transform",
-        margin: "20px 0 0 0",
+        padding: "20px 0 0 0",
       }}
     >
       <iframe
