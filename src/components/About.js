@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     filter: "drop-shadow(1px 1px 5px #222)",
   },
   title: {
-    color: "tomato",
+    color: theme.palette.primary.light,
     fontFamily: "Times New Roman",
   },
   subtitle: {

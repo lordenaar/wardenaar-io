@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom"
 import { useSpring, animated, config } from "react-spring"
 import moment from "moment"
 import {
-  Button,
   Card,
   CardActionArea,
   CardActions,
@@ -69,12 +68,12 @@ const BlogCard = ({ post }) => {
             />
           </CardContent>
         </CardActionArea>
-        <CardActions>
+        <CardActions style={{ justifyContent: "space-between" }}>
           <Typography size="small" color="primary">
-            {moment(post.date).format("DD MMM YYYY")}
+            {Object.keys(post.tags).join(", ")}
           </Typography>
           <Typography size="small" color="primary">
-            Live Demo
+            {moment(post.date).format("DD MMM YYYY")}
           </Typography>
         </CardActions>
       </AnimatedCard>

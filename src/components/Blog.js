@@ -22,7 +22,7 @@ const Blog = () => {
         width: "100%",
       }}
     >
-      <Grid container justifyContent="center">
+      <Grid container justifyContent="space-around">
         {posts.posts.map((post) => {
           return <BlogCard key={post.ID} post={post} />
         })}
