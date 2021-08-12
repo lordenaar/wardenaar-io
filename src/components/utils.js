@@ -6,8 +6,8 @@ export const getPosts = () => {
     })
 }
 
-export const getPost = (id) => {
-  return fetch(getFullUrl(`/posts/${id}`))
+export const getPost = (slug) => {
+  return fetch(getFullUrl(`/posts/slug:${slug}`))
     .then((response) => {
       return response.json()
     })
@@ -25,5 +25,5 @@ export const getMedia = () => {
 }
 
 const getFullUrl = (uri) => {
-  return "http://localhost:80/wp-json/wp/v2" + uri
+  return "https://public-api.wordpress.com/rest/v1.1/sites/196444980" + uri
 }

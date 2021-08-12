@@ -1,29 +1,20 @@
 import React, { useState, useEffect } from "react"
-import { getPosts, getMedia } from "./utils"
+import { getPosts } from "./utils"
 import BlogCard from "./BlogCard"
 import Spinner from "./Spinner"
 import { Box, Grid } from "@material-ui/core"
 
 const Blog = () => {
   const [posts, setPosts] = useState([])
-  const [media, setMedia] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
       setPosts(await getPosts())
-      setMedia(await getMedia())
     }
     fetchData()
   }, [])
 
-  const getImage = (post) => {
-    const image = media.find((img) => img.id === post.featured_media)
-    return image
-      ? image.media_details.sizes.full.source_url
-      : "https://pngimg.com/uploads/trollface/trollface_PNG30.png"
-  }
-
-  return posts ? (
+  return posts.posts ? (
     <Box
       component="div"
       style={{
@@ -31,9 +22,9 @@ const Blog = () => {
         width: "100%",
       }}
     >
-      <Grid container justify="center">
-        {posts.map((post) => {
-          return <BlogCard key={post.id} post={post} image={getImage(post)} />
+      <Grid container justifyContent="center">
+        {posts.posts.map((post) => {
+          return <BlogCard key={post.ID} post={post} />
         })}
       </Grid>
     </Box>

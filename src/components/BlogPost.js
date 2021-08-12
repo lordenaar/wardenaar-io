@@ -10,13 +10,14 @@ import Spinner from "./Spinner"
 
 const BlogPost = () => {
   const [post, setPost] = useState(null)
-  const { id } = useParams()
+  const { slug } = useParams()
   const history = useHistory()
 
   useEffect(() => {
-    const fetchData = async () => setPost(await getPost(id))
+    const fetchData = async () => setPost(await getPost(slug))
     fetchData()
-  }, [id])
+    console.log(post)
+  }, [slug, post])
 
   const BlogImage = (image) => (
     <img
@@ -42,57 +43,57 @@ const BlogPost = () => {
     </span>
   )
 
-  const CodeBlock = ({ children }) => {
-    console.log(children)
-    const codeByLines = children[0].props.children.split("\n")
-    const declaredLanguage = codeByLines[0]
-    const codeText = codeByLines.slice(1).join("\n")
+  // const CodeBlock = ({ children }) => {
+  //   // console.log(children)
+  //   const codeByLines = children[0].props.children.split("\n")
+  //   const declaredLanguage = codeByLines[0]
+  //   const codeText = codeByLines.slice(1).join("\n")
 
-    return (
-      <SyntaxHighlighter
-        customStyle={{
-          display: "flex",
-          position: "relative",
-          width: "auto",
-          borderRadius: "5px",
-          padding: "0px",
-          opacity: "90%",
-        }}
-        language={declaredLanguage}
-        style={darcula}
-      >
-        {codeText}
-      </SyntaxHighlighter>
-    )
-  }
+  //   return (
+  //     <SyntaxHighlighter
+  //       customStyle={{
+  //         display: "flex",
+  //         position: "relative",
+  //         width: "auto",
+  //         borderRadius: "5px",
+  //         padding: "0px",
+  //         opacity: "90%",
+  //       }}
+  //       language={declaredLanguage}
+  //       style={darcula}
+  //     >
+  //       {codeText}
+  //     </SyntaxHighlighter>
+  //   )
+  // }
 
-  const processText = (text) => {
-    return text
-      .replace('<pre class="wp-block-code"><code>', "<pre>")
-      .replace("</code></pre>", "</pre>")
-  }
+  // const processText = (text) => {
+  //   return text
+  //     .replace('<pre class="wp-block-code"><code>', "<pre>")
+  //     .replace("</code></pre>", "</pre>")
+  // }
 
-  post && console.log(post.content?.rendered)
+  // post && console.log(post.content)
   return post ? (
     // <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
     <>
       <Paper
         style={{ width: "88%", margin: "20px 0", padding: "10px" }}
-        dangerouslySetInnerHTML={{
-          __html: `<div><h1>${post.title?.rendered}</h1><br/>${post.content?.rendered}</div>`,
-        }}
+        // dangerouslySetInnerHTML={{
+        //   __html: `<div><h1>${post.title}</h1><br/>${post.content}</div>`,
+        // }}
       >
-        {/* <Markdown
-          children={processText(post.content?.rendered)}
+        <Markdown
+          children={post.content}
           options={{
             // disableParsingRawHTML: true,
             overrides: {
               img: BlogImage,
-              pre: CodeBlock,
+              // pre: CodeBlock,
               code: InlineCode,
             },
           }}
-        /> */}
+        />
       </Paper>
 
       <div

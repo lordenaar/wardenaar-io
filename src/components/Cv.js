@@ -26,7 +26,7 @@ const CV = () => {
           display: "flex",
           width: "100vw",
           maxWidth: "25cm",
-          height: "141vw",
+          height: "153vw",
           maxHeight: "36.5cm",
           top: "0",
           left: "0",

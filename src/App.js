@@ -46,7 +46,7 @@ function App() {
         >
           <Route exact path="/" component={About} />
           <Route path="/about" component={About} />
-          <Route exact path="/blog/:id" component={BlogPost} />
+          <Route exact path="/blog/:slug" component={BlogPost} />
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/cv" component={CV} />
         </div>

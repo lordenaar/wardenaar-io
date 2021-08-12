@@ -1,6 +1,7 @@
 import React from "react"
 import { useHistory } from "react-router-dom"
 import { useSpring, animated, config } from "react-spring"
+import moment from "moment"
 import {
   Button,
   Card,
@@ -12,7 +13,7 @@ import {
   Typography,
 } from "@material-ui/core"
 
-const BlogCard = ({ post, image }) => {
+const BlogCard = ({ post }) => {
   const history = useHistory()
   const [hoverProps, set] = useSpring(() => ({
     transform: "translate(0px, 0px)",
@@ -29,7 +30,7 @@ const BlogCard = ({ post, image }) => {
   return (
     <Grid item xs={12} sm={8} md={4} key={post.id}>
       <AnimatedCard
-        onClick={() => history.push(`/blog/${post.id}`)}
+        onClick={() => history.push(`/blog/${post.slug}`)}
         style={{
           maxWidth: 345,
           margin: "3rem auto",
@@ -41,18 +42,27 @@ const BlogCard = ({ post, image }) => {
         onScroll={() => set(updateHover(false))}
       >
         <CardActionArea>
-          <CardMedia component="img" alt="post 1" height="140" image={image} />
+          <CardMedia
+            component="img"
+            alt="post 1"
+            height="140"
+            image={
+              post.featured_image
+                ? post.featured_image
+                : "https://pngimg.com/uploads/trollface/trollface_PNG15.png"
+            }
+          />
           <CardContent>
             <Typography
               dangerouslySetInnerHTML={{
-                __html: post.title?.rendered,
+                __html: post.title,
               }}
               variant="h5"
               gutterBottom
             />
             <Typography
               dangerouslySetInnerHTML={{
-                __html: post.excerpt?.rendered,
+                __html: post.excerpt,
               }}
               variant="body2"
               color="textSecondary"
@@ -60,12 +70,12 @@ const BlogCard = ({ post, image }) => {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary">
-            Share
-          </Button>
-          <Button size="small" color="primary">
+          <Typography size="small" color="primary">
+            {moment(post.date).format("DD MMM YYYY")}
+          </Typography>
+          <Typography size="small" color="primary">
             Live Demo
-          </Button>
+          </Typography>
         </CardActions>
       </AnimatedCard>
     </Grid>
