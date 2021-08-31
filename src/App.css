@@ -17,10 +17,7 @@
   background-color: #664747;
   min-height: 100vh;
   display: flex;
-  /* flex-direction: column;
-  align-items: center;
-  justify-content: center; */
-  font-size: calc(10px + 2vmin);
+  font-size: calc(12px + 1vmin);
   color: rgb(0, 0, 0);
 }
 
@@ -35,4 +32,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+h1 {
+  color: #d65b47;
+}
+
+h3 {
+  color: #d65b47;
+}
+
+h5 {
+  color: #d65b47;
 }

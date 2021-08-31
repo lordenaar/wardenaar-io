@@ -11,6 +11,7 @@ import {
   Grid,
   Typography,
 } from "@material-ui/core"
+import bitmoji from "../bitmoji(3).png"
 
 const BlogCard = ({ post }) => {
   const history = useHistory()
@@ -45,11 +46,7 @@ const BlogCard = ({ post }) => {
             component="img"
             alt="post 1"
             height="140"
-            image={
-              post.featured_image
-                ? post.featured_image
-                : "https://pngimg.com/uploads/trollface/trollface_PNG15.png"
-            }
+            image={post.featured_image ? post.featured_image : bitmoji}
           />
           <CardContent>
             <Typography
@@ -61,7 +58,7 @@ const BlogCard = ({ post }) => {
             />
             <Typography
               dangerouslySetInnerHTML={{
-                __html: post.excerpt,
+                __html: post.excerpt.slice(0, 200) + "...",
               }}
               variant="body2"
               color="textSecondary"

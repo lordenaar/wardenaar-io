@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { getPosts } from "./utils"
+import { getPosts } from "../utils/utils"
 import BlogCard from "./BlogCard"
 import Spinner from "./Spinner"
 import { Box, Grid } from "@material-ui/core"

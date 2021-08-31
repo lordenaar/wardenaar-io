@@ -29,32 +29,51 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
+const Badge = ({ imageId, linkId }) => (
+  <a
+    href={`https://www.credly.com/badges/${linkId}`}
+    target="_blank"
+    rel="noreferrer"
+  >
+    <img
+      alt={imageId}
+      width="80px"
+      src={`https://images.credly.com/size/110x110/images/${imageId}`}
+      style={{
+        filter: "drop-shadow(10px 10px 5px #222)",
+      }}
+    />
+  </a>
+)
+
 const About = () => {
   const classes = useStyles()
 
   return (
-    <Box className={classes.typedContainer}>
-      <Grid container justifyContent="center">
-        <img src={avatar} className={classes.avatar} alt="Scott Wardenaar" />
-      </Grid>
-      <Typography className={classes.title} variant="h4">
-        <Typed strings={["Scott Wardenaar"]} typeSpeed={90} />
-      </Typography>
+    <>
+      <Box className={classes.typedContainer}>
+        <Grid container justifyContent="center">
+          <img src={avatar} className={classes.avatar} alt="Scott Wardenaar" />
+        </Grid>
+        <Typography className={classes.title} variant="h4">
+          <Typed strings={["Scott Wardenaar"]} typeSpeed={90} />
+        </Typography>
 
-      <Typography className={classes.subtitle} variant="h5">
-        <Typed
-          strings={[
-            "Full-Stack Developer",
-            "Site Reliability Engineer",
-            "DevOps Engineer",
-            "Cloud Administrator",
-          ]}
-          typeSpeed={40}
-          backSpeed={20}
-          loop
-        />
-      </Typography>
-    </Box>
+        <Typography className={classes.subtitle} variant="h5">
+          <Typed
+            strings={[
+              "Full-Stack Developer",
+              "Site Reliability Engineer",
+              "DevOps Engineer",
+              "Cloud Administrator",
+            ]}
+            typeSpeed={40}
+            backSpeed={20}
+            loop
+          />
+        </Typography>
+      </Box>
+    </>
   )
 }
 
