@@ -21,7 +21,7 @@ const BlogPost = () => {
 
   const BlogImage = (image) => (
     <img
-      style={{ width: "100%", maxWidth: `900px` }}
+      style={{ width: "100%", maxWidth: `900px`, marginBottom: "3em" }}
       src={image.src}
       alt={image.alt}
     />
@@ -60,6 +60,7 @@ const BlogPost = () => {
   }
 
   const transform = {
+    p: ({ children }) => <p className="post">{children}</p>,
     img: BlogImage,
     pre: CodeBlock,
     code: InlineCode,

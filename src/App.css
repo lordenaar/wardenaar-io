@@ -45,3 +45,7 @@ h3 {
 h5 {
   color: #d65b47;
 }
+
+p.post {
+  margin: 3em 0;
+}
