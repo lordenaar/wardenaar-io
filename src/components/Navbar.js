@@ -5,9 +5,15 @@ import Toolbar from "@material-ui/core/Toolbar"
 import useScrollTrigger from "@material-ui/core/useScrollTrigger"
 import Slide from "@material-ui/core/Slide"
 import { GitHub, LinkedIn } from "@material-ui/icons"
-import { Button as MuiButton } from "@material-ui/core"
+import { Button as MuiButton, makeStyles } from "@material-ui/core"
 
 const Navbar = (props) => {
+  const useStyles = makeStyles((theme) => ({
+    navButton: {
+      color: theme.palette.primary.dark,
+    },
+  }))
+  const classes = useStyles()
   const HideOnScroll = (props) => {
     const { children } = props
     const trigger = useScrollTrigger()
@@ -24,7 +30,8 @@ const Navbar = (props) => {
     return (
       <MuiButton
         onClick={() => history.push(to)}
-        style={{ height: "64px", padding: "0 20px", color: "#664747" }}
+        className={classes.navButton}
+        style={{ height: "64px", padding: "0 20px" }}
       >
         <h2>{children}</h2>
       </MuiButton>
@@ -42,7 +49,8 @@ const Navbar = (props) => {
               href="https://github.com/lordenaar"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#664747", display: "flex" }}
+              className={classes.navButton}
+              style={{ display: "flex" }}
             >
               <GitHub fontSize="medium" />
             </a>
@@ -52,7 +60,8 @@ const Navbar = (props) => {
               href="https://www.linkedin.com/in/swardenaar/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "#664747", display: "flex" }}
+              className={classes.navButton}
+              style={{ display: "flex" }}
             >
               <LinkedIn fontSize="large" />
             </a>
