@@ -14,11 +14,11 @@ const useStyles = makeStyles((theme) => ({
     filter: "drop-shadow(1px 1px 5px #222)",
   },
   title: {
-    color: theme.palette.primary.light,
+    color: theme.palette.primary.main,
     fontFamily: "Times New Roman",
   },
   subtitle: {
-    color: "tan",
+    color: theme.palette.primary.light,
     textTransform: "uppercase",
     fontFamily: "Courier New",
   },
